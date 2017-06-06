@@ -1,0 +1,69 @@
+@import 'settings';
+@import 'foundation-emails';
+
+/* ===========================
+	Partial Section Styles
+============================ */
+
+header {
+
+	border-top: 1px solid #ccc;
+
+	#logo {
+
+		width: 200px;
+
+	}
+
+}
+
+.callToAction {
+
+	background: $primaryBlue;
+
+	p { color: white; }
+	a { background: none; color: white !important; }
+
+	h5 {
+
+		color: white;
+		text-align: center;
+		font-weight: 100;
+		font-size: 16px;
+
+	}
+
+	.button {
+
+		background: none;
+		width: 99% !important;
+		color: white !important;
+		border: 3px solid white;
+		border-collapse: separate;
+		border-radius: 3px;
+
+	}
+
+}
+
+.footer {
+
+	background: #efefef;
+	border-bottom: 1px solid #eee;
+
+	p,
+	p small {
+
+		font-size: 12px;
+		color: $accentDarkGray !important;
+
+	}
+
+}
+
+/* ===========================
+	Import Template Styles
+============================ */
+
+@import 'templates/_alternatingServiceGrid.scss';
+@import 'templates/_default.scss';

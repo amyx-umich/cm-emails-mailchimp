@@ -1,0 +1,275 @@
+import gulp     from 'gulp';
+import plugins  from 'gulp-load-plugins';
+import browser  from 'browser-sync';
+import rimraf   from 'rimraf';
+import panini   from 'panini';
+import yargs    from 'yargs';
+import lazypipe from 'lazypipe';
+import inky     from 'inky';
+import fs       from 'fs';
+import siphon   from 'siphon-media-query';
+import path     from 'path';
+import merge    from 'merge-stream';
+import beep     from 'beepbeep';
+import colors   from 'colors';
+import inject   from 'gulp-inject-string';
+import replace	from 'gulp-replace';
+
+const $ = plugins();
+
+// Look for the --production flag
+const PRODUCTION = !!(yargs.argv.production);
+
+// Look for the --mailchimp flag
+const MAILCHIMP = !!(yargs.argv.mailchimp);
+
+// Declar var so that both AWS and Litmus task can use it.
+var CONFIG;
+
+// Build the "dist" folder by running all of the above tasks
+gulp.task('build',
+  gulp.series(clean, pages, sass, images, inline, mailchimp));
+
+// Build emails, run the server, and watch for file changes
+gulp.task('default',
+  gulp.series('build', server, watch));
+
+// Build emails, then send to litmus
+gulp.task('litmus',
+  gulp.series('build', creds, aws, litmus));
+
+// Build emails, then zip
+gulp.task('zip',
+  gulp.series('build', zip));
+
+// Delete the "dist" folder
+// This happens every time a build starts
+function clean(done) {
+  rimraf('dist', done);
+}
+
+// Compile layouts, pages, and partials into flat HTML files
+// Then parse using Inky templates
+function pages() {
+  return gulp.src('src/pages/**/*.html')
+    .pipe(panini({
+      root: 'src/pages',
+      layouts: 'src/layouts',
+      partials: 'src/partials',
+      helpers: 'src/helpers'
+    }))
+    .pipe(inky())
+    .pipe(gulp.dest('dist'));
+}
+
+// Reset Panini's cache of layouts and partials
+function resetPages(done) {
+  panini.refresh();
+  done();
+}
+
+// Compile Sass into CSS
+function sass() {
+  return gulp.src('src/assets/scss/app.scss')
+    .pipe($.if(!PRODUCTION, $.sourcemaps.init()))
+    .pipe($.sass({
+      includePaths: ['node_modules/foundation-emails/scss']
+    }).on('error', $.sass.logError))
+    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe(gulp.dest('dist/css'));
+}
+
+
+
+// Prepend MailChimp Values to HTML
+function mailchimp(done) {
+
+	if(MAILCHIMP === true){
+
+		/*
+
+			TODO Enable Titles & Message Previews for Mailchimp using template tags
+			TODO Remplace Titles with INKY mailchimp tag if required
+			TODO Mailchimp merge tag footer vs. standard html footer - Defaults to basic html - if mailchimp will replace with mailchimp tags?
+
+			1. Mailchimp Pre - Runs pre-compile on src files (might need to move to temp?)
+
+				1.1 Replace default footer with mc version (needs compiling) - Do we just replace the text or replace the entire file?
+
+			2. Mailchimp.post - runs post combile on dist files
+
+				2.1 Adds Mailchimp Editable CSS (unmified to html)
+				2.2
+
+		*/
+
+		var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString();
+
+		return gulp.src('dist/*.html')
+			.pipe(inject.after('</title>', '\n<style>' + mcCSS + '</style>\n'))
+			.pipe(replace(/<span id="address"\s*(.*)\>(.*)<\/span>/igm, '<span id="address">*|HTML:LIST_ADDRESS|*</span>'))
+			.pipe(replace(/<p id="copyright"\s*(.*)\>(.|\n)*?<\/p>/igm, '<p id="copyright">Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.<br />\n<a href="*|FORWARD|*">Forward</a> this email to a friend -\n<a href="*|UPDATE_PROFILE|*">Update your profile</a></br /></p>'))
+			.pipe(gulp.dest('./dist/'))
+			.on('end', done);
+
+	}else{
+
+		/* Fallback done(); This closes this method for non-mailchimp flag builds */
+		done();
+
+	}
+
+}
+
+
+// Run MailChimp Prep Tasks
+function mailchimpPrep() {
+
+
+}
+
+// Copy and compress images
+function images() {
+  return gulp.src('src/assets/img/**/*')
+    .pipe($.imagemin())
+    .pipe(gulp.dest('./dist/assets/img'));
+}
+
+// Inline CSS and minify HTML
+function inline() {
+  return gulp.src('dist/**/*.html')
+    .pipe($.if(PRODUCTION, inliner('dist/css/app.css')))
+    .pipe(gulp.dest('dist'));
+}
+
+// Start a server with LiveReload to preview the site in
+function server(done) {
+  browser.init({
+    server: 'dist'
+  });
+  done();
+}
+
+// Watch for file changes
+function watch() {
+
+	if(MAILCHIMP === true){
+
+		gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, mailchimp, browser.reload));
+	    gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, mailchimp, browser.reload));
+	    gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, mailchimp, browser.reload));
+	    gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
+
+	}else{
+
+		gulp.watch('src/pages/**/*.html').on('change', gulp.series(pages, inline, browser.reload));
+	    gulp.watch(['src/layouts/**/*', 'src/partials/**/*']).on('change', gulp.series(resetPages, pages, inline, browser.reload));
+	    gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss']).on('change', gulp.series(resetPages, sass, pages, inline, browser.reload));
+	    gulp.watch('src/assets/img/**/*').on('change', gulp.series(images, browser.reload));
+
+	}
+
+}
+
+// Inlines CSS into HTML, adds media query CSS into the <style> tag of the email, and compresses the HTML
+function inliner(css) {
+  var css = fs.readFileSync(css).toString();
+  var mqCss = siphon(css);
+
+  var pipe = lazypipe()
+    .pipe($.inlineCss, {
+      applyStyleTags: false,
+      removeStyleTags: false,
+      removeLinkTags: false
+    })
+    .pipe($.replace, '<!-- <style> -->', `<style>${mqCss}</style>`)
+    .pipe($.replace, '<link rel="stylesheet" type="text/css" href="css/app.css">', '')
+    .pipe($.htmlmin, {
+      collapseWhitespace: true,
+      minifyCSS: true
+    });
+
+  return pipe();
+}
+
+// Ensure creds for Litmus are at least there.
+function creds(done) {
+  var configPath = './config.json';
+  try { CONFIG = JSON.parse(fs.readFileSync(configPath)); }
+  catch(e) {
+    beep();
+    console.log('[AWS]'.bold.red + ' Sorry, there was an issue locating your config.json. Please see README.md');
+    process.exit();
+  }
+  done();
+}
+
+// Post images to AWS S3 so they are accessible to Litmus test
+function aws() {
+  var publisher = !!CONFIG.aws ? $.awspublish.create(CONFIG.aws) : $.awspublish.create();
+  var headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+
+  return gulp.src('./dist/assets/img/*')
+    // publisher will add Content-Length, Content-Type and headers specified above
+    // If not specified it will set x-amz-acl to public-read by default
+    .pipe(publisher.publish(headers))
+
+    // create a cache file to speed up consecutive uploads
+    //.pipe(publisher.cache())
+
+    // print upload updates to console
+    .pipe($.awspublish.reporter());
+}
+
+// Send email to Litmus for testing. If no AWS creds then do not replace img urls.
+function litmus() {
+  var awsURL = !!CONFIG && !!CONFIG.aws && !!CONFIG.aws.url ? CONFIG.aws.url : false;
+
+  return gulp.src('dist/**/*.html')
+    .pipe($.if(!!awsURL, $.replace(/=('|")(\/?assets\/img)/g, "=$1"+ awsURL)))
+    .pipe($.litmus(CONFIG.litmus))
+    .pipe(gulp.dest('dist'));
+}
+
+// Copy and compress into Zip
+function zip() {
+  var dist = 'dist';
+  var ext = '.html';
+
+  function getHtmlFiles(dir) {
+    return fs.readdirSync(dir)
+      .filter(function(file) {
+        var fileExt = path.join(dir, file);
+        var isHtml = path.extname(fileExt) == ext;
+        return fs.statSync(fileExt).isFile() && isHtml;
+      });
+  }
+
+  var htmlFiles = getHtmlFiles(dist);
+
+  var moveTasks = htmlFiles.map(function(file){
+    var sourcePath = path.join(dist, file);
+    var fileName = path.basename(sourcePath, ext);
+
+    var moveHTML = gulp.src(sourcePath)
+      .pipe($.rename(function (path) {
+        path.dirname = fileName;
+        return path;
+      }));
+
+    var moveImages = gulp.src(sourcePath)
+      .pipe($.htmlSrc({ selector: 'img'}))
+      .pipe($.rename(function (path) {
+        path.dirname = fileName + '/assets/img';
+        return path;
+      }));
+
+    return merge(moveHTML, moveImages)
+      .pipe($.zip(fileName+ '.zip'))
+      .pipe(gulp.dest('dist'));
+  });
+
+  return merge(moveTasks);
+}
