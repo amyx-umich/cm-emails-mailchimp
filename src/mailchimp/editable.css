@@ -29,8 +29,8 @@
 * @tip Set the styling for all first-level headings in your emails.
 * @style heading 1
 */
-.content_row h4 {
+h4 {
 
-	/*@editable*/ line-height: 1.7;
+	/*@editable*/ line-height: 1.4;
 
 }
