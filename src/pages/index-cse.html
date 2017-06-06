@@ -73,92 +73,62 @@ subject: CSE Email Newsletter Template
             <img mc:edit="single-image-1" src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/b3a4b72b-5f75-4ce8-bd75-46637dddb30d.jpg" width="100%">
             <h4 mc:edit="single-hed">Option 2</h4>
             <p mc:edit="single-dek">Inspired by the ostrich, Cassie is designed to boldly go where no robot has gone before.</p>
-            <p><a class="cta" href="#" target="_blank" mc:edit="single-cta">Read more</a></p>
+            <p><a mc:edit="single-cta" class="cta" href="#" target="_blank">Read more</a></p>
         </columns>
         <columns class="expander"></columns>
     </row>
     <spacer size="10" class="hr"></spacer>
     <row>
         <columns>
-            <h1 class="section-title">RECENT NEWS - TWO COLUMN</h1>
+            <h1 mc:edit="section-title-2" class="section-title">RECENT NEWS - REPEATABLE</h1>
         </columns>
     </row>
-    <row class="content-grid sxs">
+    <row class="content-grid sxs" mc:repeatable>
         <columns small="6" large="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
+            <img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%" mc:edit="news-img-1">
         </columns>
         <columns small="6" large="6" valign="middle">
-            <h4><a href="#link" target="_blank">Option One</a></h4>
-            <p><a href="#link" target="_blank">This is a short blurb about the story.</a></p>
-            <p><a class="cta" href="#" target="_blank">Read more</a></p>
-        </columns>
-    </row>
-    <row class="content-grid sxs">
-        <columns small="6" large="6" valign="middle">
-            <h4><a href="#link" target="_blank">Option One</a></h4>
-            <p><a href="#link" target="_blank">This is a short blurb about the story.</a></p>
-            <p><a class="cta" href="#" target="_blank">Read more</a></p>
-        </columns>
-        <columns small="6"  large="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
-        </columns>
-    </row>
-    <row class="content-grid sxs">
-        <columns small="6" large="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
-        </columns>
-        <columns small="6" large="6" valign="middle">
-            <h4><a href="#link" target="_blank">Option One</a></h4>
-            <p><a href="#link" target="_blank">This is a short blurb about the story.</a></p>
-            <p><a class="cta" href="#" target="_blank">Read more</a></p>
-        </columns>
-    </row>
-    <row class="content-grid sxs last">
-        <columns small="6" large="6" valign="middle">
-            <h4><a href="#link" target="_blank">Option One</a></h4>
-            <p><a href="#link" target="_blank">This is a short blurb about the story.</a></p>
-            <p><a class="cta" href="#" target="_blank">Read more</a></p>
-        </columns>
-        <columns small="6" large="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
+            <h4 mc:edit="news-hed-1">Option One</h4>
+            <p mc:edit="news-dek-1">This is a short blurb about the story.</p>
+            <p><a mc:edit="news-cta" class="cta" href="#" target="_blank">Read more</a></p>
         </columns>
     </row>
     <spacer size="20"></spacer>
     <row>
         <columns>
-            <h1 class="section-title">UPCOMING EVENTS</h1>
+            <h1 mc:edit="section-title-3" class="section-title">UPCOMING EVENTS</h1>
         </columns>
     </row>
-    <row class="content-grid events last">
+    <row class="content-grid events last" mc:repeatable>
         <columns small="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
-            <h4><a href="#link" target="_blank">Event 1</a></h4>
-            <p><a href="#link" target="_blank">Inspired by the ostrich, Cassie is designed to boldly go where no robot has gone before. <span class="time-indicator">| RSVP</span></a></p>
+            <img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%" mc:edit="events-img-1">
+            <h4 mc:edit="events-hed-1">Event 1</h4>
+            <p mc:edit="events-dek-1">Inspired by the ostrich, Cassie is designed to boldly go where no robot has gone before. <span class="time-indicator">| RSVP</span></p>
         </columns>
         <columns small="6">
-            <a href="#link" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%"></a>
-            <h4><a href="#link" target="_blank">Event 2</a></h4>
-            <p><a href="#link" target="_blank">Inspired by the ostrich, Cassie is designed to boldly go where no robot has gone before. <span class="time-indicator">| RSVP</span></a></p>
+            <img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/4ed52b64-35ff-4c32-b116-12adc50a3796.jpg" width="100%" mc:edit="events-img-1">
+            <h4 mc:edit="events-hed-1">Event 2</h4>
+            <p mc:edit="events-dek-1">Inspired by the ostrich, Cassie is designed to boldly go where no robot has gone before. <span class="time-indicator">| RSVP</span></p>
         </columns>
     </row>
     <row class="call-to-actions">
-        <columns large="3">
-            <button href="#link" class="radius expanded" target="_blank">GIVE &raquo;</button>
+        <columns large="3" mc:repeatable>
+            <button mc:edit="cta-button-1" class="radius expanded" target="_blank">GIVE &raquo;</button>
         </columns>
     </row>
     <row class="social full-width">
         <columns></columns>
         <columns class="icon" small="3" large="1">
-            <a href="#"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/78052cd9-9e1e-4d0f-97fe-d24f7b9d232d.gif" alt=""></a>
+            <a href="https://www.facebook.com/Electrical-Engineering-and-Computer-Science-Department-at-Michigan-65666857760/" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/78052cd9-9e1e-4d0f-97fe-d24f7b9d232d.gif" alt=""></a>
         </columns>
         <columns class="icon" small="3" large="1">
-            <a href="#"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/a5fb3302-d798-4ffb-b0d6-95fa4241ad9b.png" alt=""></a>
+            <a href="https://www.youtube.com/user/EECSatUM" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/a5fb3302-d798-4ffb-b0d6-95fa4241ad9b.png" alt=""></a>
         </columns>
         <columns class="icon" small="3" large="1">
-            <a href="#"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/18d2fc39-690a-4999-9977-a4fcca865ae0.gif" alt=""></a>
+            <a href="https://www.linkedin.com/groups/1062957/profile" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/18d2fc39-690a-4999-9977-a4fcca865ae0.gif" alt=""></a>
         </columns>
         <columns class="icon" small="3" large="1">
-            <a href="#"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/e85d1abc-feb8-49e4-a320-a8e392147e74.gif" alt=""></a>
+            <a href="https://twitter.com/EECSatMI" target="_blank"><img src="https://gallery.mailchimp.com/9b2f8a58c98a068cf202c13cb/images/e85d1abc-feb8-49e4-a320-a8e392147e74.gif" alt=""></a>
         </columns>
         <columns></columns>
     </row>
