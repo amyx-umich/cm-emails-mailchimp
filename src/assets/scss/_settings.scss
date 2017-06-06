@@ -12,41 +12,53 @@
 //   7. Menu
 //   8. Thumbnail
 
-// 0. Fusion Brand Colours
-// ---------
-
-$primaryBlue: #009dcc;
-$primaryBlack: #000000;
-
-$secondaryGreen: #3da7a5;
-$secondaryOrange: #ef4d2c;
-$secondaryYellow: #fed156;
-
-$accentBlack: #332e42;
-$accentLightGray: #8f9bb5;
-$accentDarkGray: #70757c;
 
 // 1. Global
 // ---------
 
-$primary-color: $primaryBlue;
-$secondary-color: #3da7a5;
+// U-M Brand Colors
+$michigan-blue: #00274c;
+$michigan-maize: #ffcb05;
+$tappan-red: #9a3324;
+$arboretum-blue: #407ec9;
+$ross-orange: #d86018;
+$taubman-teal: #00b2a9;
+$wave-field-green: #ada400;
+$a2-amethyst: #702082;
+// Social
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$reddit: #FF5700;
+$snapchat: #FFFC00;
+$envelope: $ross-orange;
+$plus: $tappan-red;
+$rss: #FF6600;
+$primary-color: #2199e8;
+$secondary-color: #777777;
 $success-color: #3adb76;
 $warning-color: #ffae00;
-$alert-color: #ec5840;
-$light-gray: #f3f3f3;
+$alert-color: #ffcb05;
+$light-gray: #f7f7f7;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #ffffff;
+$dark-gray: #282828;
+$black: #1d1d1d;
+$white: #fefefe;
 $pre-color: #ff6908;
-$global-width: 580px;
+$global-width: 600px;
 $global-width-small: 95%;
-$global-gutter: 16px;
-$body-background: $white;
-$container-background: none;
-$global-padding: 16px;
-$global-margin: 16px;
+$global-gutter: 20px;
+$body-background: $light-gray;
+$container-background: $white;
+$global-padding: 20px;
+$global-margin: 20px;
 $global-radius: 3px;
 $global-rounded: 500px;
 $global-breakpoint: $global-width + $global-gutter;
@@ -67,21 +79,21 @@ $block-grid-gutter: $global-gutter;
 // 4. Typography
 // -------------
 
-$global-font-color: $accentDarkGray;
-$body-font-family: Helvetica, Arial, sans-serif;
+$global-font-color: $dark-gray;
+$body-font-family: "Noto Serif", Georgia, serif;
 $global-font-weight: normal;
-$header-color: $primaryBlue;
-$global-line-height: 1.7;
+$header-color: inherit;
+$global-line-height: 1.3;
 $global-font-size: 14px;
 $body-line-height: $global-line-height;
-$header-font-family: $body-font-family;
-$header-font-weight: $global-font-weight;
-$h1-font-size: 24px;
-$h2-font-size: 24px;
-$h3-font-size: 22px;
-$h4-font-size: 20px;
-$h5-font-size: 18px;
-$h6-font-size: 16px;
+$header-font-family: "Open Sans", Helvetica, Arial, sans-serif;
+$header-font-weight: 800;
+$h1-font-size: 34px;
+$h2-font-size: 30px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 20px;
+$h6-font-size: 18px;
 $header-margin-bottom: 10px;
 $paragraph-margin-bottom: 10px;
 $small-font-size: 80%;
@@ -115,15 +127,15 @@ $button-padding: (
 );
 $button-font-size: (
   tiny: 10px,
-  small: 14px,
-  default: $global-font-size,
-  large: 14px,
+  small: 12px,
+  default: 16px,
+  large: 20px,
 );
 $button-color: $white;
 $button-color-alt: $medium-gray;
 $button-font-weight: bold;
 $button-margin: 0 0 $global-margin 0;
-$button-background: $primary-color;
+$button-background: $michigan-blue;
 $button-border: 2px solid $button-background;
 $button-radius: $global-radius;
 $button-rounded: $global-rounded;
@@ -157,3 +169,4 @@ $thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
 $thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
 $thumbnail-transition: box-shadow 200ms ease-out;
 $thumbnail-radius: $global-radius;
+

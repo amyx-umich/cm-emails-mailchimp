@@ -1,0 +1,331 @@
+// These are the styles to make some of the templates look extra nice.
+// Feel free to remove these styles for production!
+// Body Styles 
+body,
+html,
+.body {
+    background: $light-gray !important;
+}
+
+.container {
+    background: $white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .gray-bg {
+        background-color: $dark-gray;
+        .section-title {
+            color: $white;
+        }
+    }
+    .yell-bg {
+        background-color: lighten($michigan-maize, 4%);
+    }
+    .blue-bg {
+        background-color: $arboretum-blue;
+    }
+    .hr {
+        border-bottom: 1px solid $medium-gray;
+        margin-bottom: 30px;
+    }
+    .cta {
+        font-family: "Open Sans";
+        font-weight: 800;
+        &.lighter {
+            font-weight: 400;
+        }
+    }
+    &.engage {
+        .header {
+            background: $michigan-maize;
+            .menu {
+                .menu-item {
+                    a {
+                        font-family: "Fjalla One";
+                        text-transform: uppercase;
+                        color: $michigan-blue;
+                    }
+                }
+            }
+        }
+        .lead-story {
+            background-color: $white;
+            h2,
+            p {
+                color: $black;
+            }
+            h2 {
+                a {
+                    font-family: "Open Sans";
+                    font-size: 36px;
+                    line-height: 1.2;
+                    color: $black !important;
+                    font-weight: 800;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .eyebrow {
+                color: $michigan-blue;
+                font-family: "Open Sans";
+                font-weight: 800;
+                margin-bottom: 0;
+            }
+            &.hed {
+                .columns {
+                    padding-top: 20px;
+                }
+            }
+            &.dek {
+                border-bottom: 4px solid darken($black, 5%);
+                .time-indicator {
+                    font-family: "Open Sans";
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+                p {
+                    font-size: 18px;
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+    .top-spacer {
+        border-top: 2px solid $medium-gray;
+    }
+    .preheader {
+        p {
+            font-size: 11px;
+            margin-bottom: 0;
+        }
+    }
+    .header {
+        background: $michigan-blue;
+        .columns {
+            padding-bottom: 0;
+        }
+        .menu {
+            .menu-item {
+                a {
+                    font-family: "Fjalla One";
+                    text-transform: uppercase;
+                    color: $white;
+                }
+            }
+            /* Small only */
+            @media only screen and (max-width: #{$global-breakpoint}) {
+                width: 57% !important;
+                margin: 0 auto !important;
+            }
+        }
+    }
+    .lead-story {
+        background-color: $black;
+        h2,
+        p {
+            color: $white;
+        }
+        h2 {
+            a {
+                font-family: "Open Sans";
+                font-size: 36px;
+                line-height: 1.2;
+                color: $white;
+                font-weight: 800;
+                &:hover {
+                    text-decoration: underline;
+                }
+                @media only screen and (max-width: #{$global-breakpoint}) {
+                    font-size: 30px !important;
+                }
+            }
+        }
+        .eyebrow {
+            color: $michigan-maize;
+            font-family: "Open Sans";
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        &.hed {
+            .columns {
+                padding-top: 20px;
+            }
+        }
+        &.dek {
+            border-bottom: 4px solid darken($black, 5%);
+            .time-indicator {
+                font-family: "Open Sans";
+                font-weight: 600;
+                font-size: 14px;
+            }
+            p {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+    .section-title {
+        font-family: "Fjalla One";
+        border-left: 4px solid $michigan-maize;
+        padding-left: 5px;
+        margin-bottom: 0;
+        line-height: 1;
+        /* Small only */
+        @media only screen and (max-width: #{$global-breakpoint}) {
+            font-size: 24px !important;
+        }
+    }
+    .content-grid,
+    .single {
+        img {
+            margin-bottom: 10px;
+        }
+        h4 {
+            a {
+                font-family: "Open Sans";
+                font-weight: 800;
+                color: $black;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        p {
+            a {
+                color: $black;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &.cta {
+                    color: $primary-color;
+                }
+            }
+        }
+        .time-indicator {
+            font-family: "Open Sans";
+            font-weight: 800;
+        }
+        &.last {
+            p {
+                border-bottom: 0;
+            }
+        }
+    }
+    .sxs {
+        margin-bottom: 20px;
+        border-bottom: 1px dashed $medium-gray;
+        h4 {
+            /* Small only */
+            @media only screen and (max-width: #{$global-breakpoint}) {
+                font-size: 16px !important;
+            }
+        }
+        &.last {
+            margin-bottom: 0;
+            border-bottom: 1px solid $medium-gray;
+        }
+    }
+    .promo {
+        background-color: $michigan-blue;
+        .first {
+            padding-bottom: 0;
+        }
+        .last {
+            padding-top: 40px;
+        }
+        h3.section-title {
+            color: $white;
+            font-weight: normal;
+            margin-top: 20px;
+        }
+        ul {
+            padding-left: 15px;
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-weight: 800;
+            color: $white;
+            li {
+                margin-bottom: 15px;
+                a {
+                    font-family: "Open Sans";
+                    color: $white;
+                }
+            }
+        }
+        .button {
+            a {
+                color: $black;
+                font-family: "Open Sans";
+            }
+        }
+    }
+    .events {
+        h4 {
+            /* Small only */
+            @media only screen and (max-width: #{$global-breakpoint}) {
+                font-size: 18px !important;
+            }
+        }
+        p {
+            /* Small only */
+            @media only screen and (max-width: #{$global-breakpoint}) {
+                font-size: 12px !important;
+            }
+            a {
+                .time-indicator {
+                    color: $arboretum-blue;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .call-to-actions {
+        background-color: $michigan-maize;
+        border-top: 2px solid darken($michigan-maize, 10%);
+        .columns {
+            .button {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+                a {
+                    font-family: "Fjalla One";
+                }
+            }
+            img {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+        &.full-width {
+            border-top: 0;
+            border-bottom: 2px solid darken($michigan-maize, 5%);
+            a {
+                color: $black;
+                text-decoration: underline;
+                &:hover {
+                    color: $arboretum-blue;
+                }
+            }
+        }
+    }
+    .social {
+        background-color: $michigan-maize;
+        padding-bottom: 20px;
+    }
+    .footer {
+        background-color: $michigan-blue;
+        border-top: 2px solid darken($michigan-blue, 4%);
+        border-bottom: 10px solid #000000;
+        img {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        p {
+            color: $white;
+            a {
+                color: $white;
+                text-decoration: underline;
+            }
+        }
+    }
+}

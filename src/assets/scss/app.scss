@@ -1,69 +1,37 @@
+@media all {
+    @font-face {
+        font-family: 'Noto Serif';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Noto Serif'), local('NotoSerif'), url(https://fonts.gstatic.com/s/notoserif/v4/fVu1p3782bqS2z-CaJvp9gsYbbCjybiHxArTLjt7FRU.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+    
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    }
+    
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 800;
+        src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(https://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hhampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    }
+    
+    @font-face {
+        font-family: 'Fjalla One';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Fjalla One'), local('FjallaOne-Regular'), url(https://fonts.gstatic.com/s/fjallaone/v4/rxxXUYj4oZ6Q5oDJFtEd6gzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    }
+}
+
 @import 'settings';
 @import 'foundation-emails';
-
-/* ===========================
-	Partial Section Styles
-============================ */
-
-header {
-
-	border-top: 1px solid #ccc;
-
-	#logo {
-
-		width: 200px;
-
-	}
-
-}
-
-.callToAction {
-
-	background: $primaryBlue;
-
-	p { color: white; }
-	a { background: none; color: white !important; }
-
-	h5 {
-
-		color: white;
-		text-align: center;
-		font-weight: 100;
-		font-size: 16px;
-
-	}
-
-	.button {
-
-		background: none;
-		width: 99% !important;
-		color: white !important;
-		border: 3px solid white;
-		border-collapse: separate;
-		border-radius: 3px;
-
-	}
-
-}
-
-.footer {
-
-	background: #efefef;
-	border-bottom: 1px solid #eee;
-
-	p,
-	p small {
-
-		font-size: 12px;
-		color: $accentDarkGray !important;
-
-	}
-
-}
-
-/* ===========================
-	Import Template Styles
-============================ */
-
-@import 'templates/_alternatingServiceGrid.scss';
-@import 'templates/_default.scss';
+@import 'template/template';
