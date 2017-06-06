@@ -1,4 +1,4 @@
-# Foundation for Emails & MailChimp
+# Foundation for Emails & MailChimp | CoE
 
 [![devDependency Status](https://david-dm.org/jamesrwilliams/foundation-emails-with-mailchimp.svg)](https://david-dm.org/jamesrwilliams/foundation-emails-with-mailchimp)
 
