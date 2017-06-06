@@ -26,7 +26,7 @@ const MAILCHIMP = !!(yargs.argv.mailchimp);
 // Declar var so that both AWS and Litmus task can use it.
 var CONFIG;
 
-// Build the "dist" folder by running all of the above tasks
+// Build the "docs" folder by running all of the above tasks
 gulp.task('build',
   gulp.series(clean, pages, sass, images, inline, mailchimp));
 
@@ -42,10 +42,10 @@ gulp.task('litmus',
 gulp.task('zip',
   gulp.series('build', zip));
 
-// Delete the "dist" folder
+// Delete the "docs" folder
 // This happens every time a build starts
 function clean(done) {
-  rimraf('dist', done);
+  rimraf('docs', done);
 }
 
 // Compile layouts, pages, and partials into flat HTML files
@@ -59,7 +59,7 @@ function pages() {
       helpers: 'src/helpers'
     }))
     .pipe(inky())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('docs'));
 }
 
 // Reset Panini's cache of layouts and partials
@@ -76,7 +76,7 @@ function sass() {
       includePaths: ['node_modules/foundation-emails/scss']
     }).on('error', $.sass.logError))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('docs/css'));
 }
 
 
@@ -96,7 +96,7 @@ function mailchimp(done) {
 
 				1.1 Replace default footer with mc version (needs compiling) - Do we just replace the text or replace the entire file?
 
-			2. Mailchimp.post - runs post combile on dist files
+			2. Mailchimp.post - runs post combile on docs files
 
 				2.1 Adds Mailchimp Editable CSS (unmified to html)
 				2.2
@@ -105,11 +105,11 @@ function mailchimp(done) {
 
 		var mcCSS = fs.readFileSync("src/mailchimp/editable.css").toString();
 
-		return gulp.src('dist/*.html')
+		return gulp.src('docs/*.html')
 			.pipe(inject.after('</title>', '\n<style>' + mcCSS + '</style>\n'))
 			.pipe(replace(/<span id="address"\s*(.*)\>(.*)<\/span>/igm, '<span id="address">*|HTML:LIST_ADDRESS|*</span>'))
 			.pipe(replace(/<p id="copyright"\s*(.*)\>(.|\n)*?<\/p>/igm, '<p id="copyright">Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.<br />\n<a href="*|FORWARD|*">Forward</a> this email to a friend -\n<a href="*|UPDATE_PROFILE|*">Update your profile</a></br /></p>'))
-			.pipe(gulp.dest('./dist/'))
+			.pipe(gulp.dest('./docs/'))
 			.on('end', done);
 
 	}else{
@@ -132,20 +132,20 @@ function mailchimpPrep() {
 function images() {
   return gulp.src('src/assets/img/**/*')
     .pipe($.imagemin())
-    .pipe(gulp.dest('./dist/assets/img'));
+    .pipe(gulp.dest('./docs/assets/img'));
 }
 
 // Inline CSS and minify HTML
 function inline() {
-  return gulp.src('dist/**/*.html')
-    .pipe($.if(PRODUCTION, inliner('dist/css/app.css')))
-    .pipe(gulp.dest('dist'));
+  return gulp.src('docs/**/*.html')
+    .pipe($.if(PRODUCTION, inliner('docs/css/app.css')))
+    .pipe(gulp.dest('docs'));
 }
 
 // Start a server with LiveReload to preview the site in
 function server(done) {
   browser.init({
-    server: 'dist'
+    server: 'docs'
   });
   done();
 }
@@ -211,7 +211,7 @@ function aws() {
     'Cache-Control': 'max-age=315360000, no-transform, public'
   };
 
-  return gulp.src('./dist/assets/img/*')
+  return gulp.src('./docs/assets/img/*')
     // publisher will add Content-Length, Content-Type and headers specified above
     // If not specified it will set x-amz-acl to public-read by default
     .pipe(publisher.publish(headers))
@@ -227,15 +227,15 @@ function aws() {
 function litmus() {
   var awsURL = !!CONFIG && !!CONFIG.aws && !!CONFIG.aws.url ? CONFIG.aws.url : false;
 
-  return gulp.src('dist/**/*.html')
+  return gulp.src('docs/**/*.html')
     .pipe($.if(!!awsURL, $.replace(/=('|")(\/?assets\/img)/g, "=$1"+ awsURL)))
     .pipe($.litmus(CONFIG.litmus))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('docs'));
 }
 
 // Copy and compress into Zip
 function zip() {
-  var dist = 'dist';
+  var docs = 'docs';
   var ext = '.html';
 
   function getHtmlFiles(dir) {
@@ -247,10 +247,10 @@ function zip() {
       });
   }
 
-  var htmlFiles = getHtmlFiles(dist);
+  var htmlFiles = getHtmlFiles(docs);
 
   var moveTasks = htmlFiles.map(function(file){
-    var sourcePath = path.join(dist, file);
+    var sourcePath = path.join(docs, file);
     var fileName = path.basename(sourcePath, ext);
 
     var moveHTML = gulp.src(sourcePath)
@@ -268,7 +268,7 @@ function zip() {
 
     return merge(moveHTML, moveImages)
       .pipe($.zip(fileName+ '.zip'))
-      .pipe(gulp.dest('dist'));
+      .pipe(gulp.dest('docs'));
   });
 
   return merge(moveTasks);
