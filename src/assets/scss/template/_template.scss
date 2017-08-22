@@ -90,8 +90,73 @@ html,
             }
         }
     }
+    &.chem {
+        .lead {
+            font-family: "Fjalla One";
+            font-size: 28px;
+            text-transform: uppercase;
+            color: $white;
+            @media only screen and (max-width: #{$global-breakpoint}) {
+                font-size: 18px;
+            }
+        }
+        .lead-story {
+            background-color: $michigan-maize;
+            .columns {
+                padding-bottom: 0;
+            }
+            h2,
+            p {
+                color: $black;
+            }
+            h2 {
+                font-size: 48px;
+                line-height: 1.2;
+            }
+            &.dek {
+                background-color: $black;
+                border-bottom: 1px solid $white;
+                color: $white;
+                .columns {
+                    padding: 20px;
+                }
+                p {
+                    color: $white;
+                    font-size: 14px;
+                    line-height: 1.6;
+                    &.photo-credit {
+                        font-family: 'Open Sans';
+                    }
+                }
+            }
+        }
+        .quote {
+            background-color: $michigan-maize;
+            p {
+                color: $michigan-blue;
+                line-height: 1.6;
+                font-size: 16px;
+                &.inset {
+                    padding: 0 20px;
+                    font-family: 'Open Sans';
+                    font-style: italic;
+                }
+            }
+        }
+        .cta {
+            background-color: $michigan-maize;
+            border-bottom: 1px solid $white;
+            .button {
+                a {
+                    font-family: 'Open Sans';
+                    font-weight: 800;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
     .top-spacer {
-        border-top: 2px solid $medium-gray;
+        border-top: 1px solid $medium-gray;
     }
     .preheader {
         p {
