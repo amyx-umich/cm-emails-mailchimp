@@ -96,6 +96,7 @@ html,
             font-size: 28px;
             text-transform: uppercase;
             color: $white;
+            margin-bottom: .5rem;
             @media only screen and (max-width: #{$global-breakpoint}) {
                 font-size: 18px;
             }

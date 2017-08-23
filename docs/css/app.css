@@ -1437,7 +1437,8 @@ html,
     font-family: "Fjalla One";
     font-size: 28px;
     text-transform: uppercase;
-    color: #fefefe; }
+    color: #fefefe;
+    margin-bottom: .5rem; }
     @media only screen and (max-width: 620px) {
       .container.chem .lead {
         font-size: 18px; } }
