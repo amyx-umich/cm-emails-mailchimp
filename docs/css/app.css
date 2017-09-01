@@ -1401,7 +1401,7 @@ html,
   .container.engage .header {
     background: #ffcb05; }
     .container.engage .header .menu .menu-item a {
-      font-family: "Fjalla One";
+      font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
       text-transform: uppercase;
       color: #00274c; }
   .container.engage .lead-story {
@@ -1434,7 +1434,7 @@ html,
         font-size: 18px;
         line-height: 1.6; }
   .container.chem .lead {
-    font-family: "Fjalla One";
+    font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
     font-size: 28px;
     text-transform: uppercase;
     color: #fefefe;
@@ -1546,7 +1546,7 @@ html,
     .container .header .menu {
       /* Small only */ }
       .container .header .menu .menu-item a {
-        font-family: "Fjalla One";
+        font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
         text-transform: uppercase;
         color: #fefefe; }
       @media only screen and (max-width: 620px) {
@@ -1586,7 +1586,7 @@ html,
         font-size: 18px;
         line-height: 1.6; }
   .container .section-title {
-    font-family: "Fjalla One";
+    font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
     border-left: 4px solid #ffcb05;
     padding-left: 5px;
     margin-bottom: 0;
@@ -1678,7 +1678,7 @@ html,
       margin-bottom: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
       .container .call-to-actions .columns .button a {
-        font-family: "Fjalla One"; }
+        font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif; }
     .container .call-to-actions .columns img {
       margin-top: 20px;
       width: 100%; }
