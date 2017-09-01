@@ -98,7 +98,7 @@ html,
             color: $white;
             margin-bottom: .5rem;
             @media only screen and (max-width: #{$global-breakpoint}) {
-                font-size: 18px;
+                font-size: 18px !important;
             }
         }
         .lead-story {
@@ -113,6 +113,9 @@ html,
             h2 {
                 font-size: 48px;
                 line-height: 1.2;
+                @media only screen and (max-width: #{$global-breakpoint}) {
+                font-size: 36px !important;
+            }
             }
             &.dek {
                 background-color: $black;

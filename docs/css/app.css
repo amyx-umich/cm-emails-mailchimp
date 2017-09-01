@@ -1441,7 +1441,7 @@ html,
     margin-bottom: .5rem; }
     @media only screen and (max-width: 620px) {
       .container.chem .lead {
-        font-size: 18px; } }
+        font-size: 18px !important; } }
   .container.chem .lead-story {
     background-color: #ffcb05; }
     .container.chem .lead-story .columns {
@@ -1452,6 +1452,9 @@ html,
     .container.chem .lead-story h2 {
       font-size: 48px;
       line-height: 1.2; }
+      @media only screen and (max-width: 620px) {
+        .container.chem .lead-story h2 {
+          font-size: 36px !important; } }
     .container.chem .lead-story.dek {
       background-color: #1d1d1d;
       border-bottom: 1px solid #fefefe;
