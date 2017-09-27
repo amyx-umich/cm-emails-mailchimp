@@ -1435,7 +1435,7 @@ html,
         line-height: 1.6; }
   .container.chem .lead {
     font-family: "Fjalla One";
-    font-size: 28px;
+    font-size: 20px;
     text-transform: uppercase;
     color: #fefefe;
     margin-bottom: .5rem; }
@@ -1450,7 +1450,7 @@ html,
     .container.chem .lead-story p {
       color: #1d1d1d; }
     .container.chem .lead-story h2 {
-      font-size: 48px;
+      font-size: 36px;
       line-height: 1.2; }
     .container.chem .lead-story.dek {
       background-color: #1d1d1d;
@@ -1509,11 +1509,12 @@ html,
       border-bottom: 2px dotted #ffcb05;
       padding-top: 20px;
       padding-bottom: 20px; }
-      .container.chem .new-faculty .columns .listing p {
+      .container.chem .new-faculty .columns .listing .clear {
+        clear: both; }
+      .container.chem .new-faculty .columns .listing div {
         color: #fefefe;
-        line-height: 1.6;
-        margin-bottom: 0; }
-        .container.chem .new-faculty .columns .listing p .name {
+        line-height: 1.6; }
+        .container.chem .new-faculty .columns .listing div .name {
           font-family: 'Open Sans';
           font-weight: 800;
           color: #ffcb05; }

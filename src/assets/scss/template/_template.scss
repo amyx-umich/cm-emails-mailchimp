@@ -93,7 +93,7 @@ html,
     &.chem {
         .lead {
             font-family: "Fjalla One";
-            font-size: 28px;
+            font-size: 20px;
             text-transform: uppercase;
             color: $white;
             margin-bottom: .5rem;
@@ -111,7 +111,7 @@ html,
                 color: $black;
             }
             h2 {
-                font-size: 48px;
+                font-size: 36px;
                 line-height: 1.2;
             }
             &.dek {
@@ -189,16 +189,19 @@ html,
                     border-bottom: 2px dotted $michigan-maize;
                     padding-top: 20px;
                     padding-bottom: 20px;
-                    p {
+                    .clear {
+                        clear: both;
+                    }
+                    div {
                         color: $white;
                         line-height: 1.6;
-                        margin-bottom: 0;
                         .name {
                             font-family: 'Open Sans';
                             font-weight: 800;
                             color: $michigan-maize;
                         }
                     }
+
                     img {
                         width: 19%;
                         max-width: none;
