@@ -40,7 +40,7 @@ html,
             .menu {
                 .menu-item {
                     a {
-                        font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
+                        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
                         text-transform: uppercase;
                         color: $michigan-blue;
                     }
@@ -93,7 +93,7 @@ html,
     &.chem {
         .lead {
 
-            font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
+            font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
             font-size: 28px;
             text-transform: uppercase;
             color: $white;
@@ -190,7 +190,7 @@ html,
             .columns {
                 .listing {
                     color: $white;
-                    border-bottom: 2px dotted $michigan-maize;
+                    border-bottom: 2px dotted lighten($michigan-blue, 10%);
                     padding-top: 20px;
                     padding-bottom: 20px;
                     .clear {
@@ -245,7 +245,7 @@ html,
         .menu {
             .menu-item {
                 a {
-                    font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
+                    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
                     text-transform: uppercase;
                     color: $white;
                 }
@@ -303,7 +303,7 @@ html,
         }
     }
     .section-title {
-        font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
+        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
         border-left: 4px solid $michigan-maize;
         padding-left: 5px;
         margin-bottom: 0;
@@ -426,7 +426,7 @@ html,
                 margin-bottom: 10px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
                 a {
-                    font-family: "Fjalla One", Arial Narrow, Helvetica, sans-serif;
+                    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
                 }
             }
             img {
