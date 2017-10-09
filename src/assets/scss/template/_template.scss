@@ -92,9 +92,8 @@ html,
     }
     &.chem {
         .lead {
-
             font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
-            font-size: 28px;
+            font-size: 24px !important;
             text-transform: uppercase;
             color: $white;
             margin-bottom: .5rem;
@@ -114,8 +113,9 @@ html,
             h2 {
                 font-size: 36px;
                 line-height: 1.2;
+                font-weight: normal;
                 @media only screen and (max-width: #{$global-breakpoint}) {
-                    font-size: 36px !important;
+                    font-size: 24px !important;
                 }
             }
             &.dek {
