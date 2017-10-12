@@ -1458,7 +1458,7 @@ html,
           font-size: 24px !important; } }
     .container.chem .lead-story.dek {
       background-color: #1d1d1d;
-      border-bottom: 1px solid #fefefe;
+      border-bottom: 0 !important;
       color: #fefefe; }
       .container.chem .lead-story.dek .columns {
         padding: 20px; }
@@ -1480,8 +1480,7 @@ html,
         font-style: italic; }
   .container.chem .periwinkle {
     background-color: #54aee8;
-    border-top: 2px solid #318cce;
-    border-bottom: 2px solid #318cce; }
+    border-top: 2px solid #318cce; }
     .container.chem .periwinkle .columns {
       padding: 0 !important; }
     .container.chem .periwinkle p {
@@ -1491,12 +1490,11 @@ html,
       padding: 36px 0;
       margin: 0; }
   .container.chem .cta {
-    background-color: #ffcb05;
-    border-bottom: 1px solid #fefefe; }
+    background-color: #ffcb05; }
     .container.chem .cta .columns {
       padding: 0 !important; }
     .container.chem .cta .button {
-      margin: 36px 0;
+      margin: 0 0 36px 0;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
       .container.chem .cta .button a {
         font-family: 'Open Sans';
@@ -1504,8 +1502,7 @@ html,
         text-transform: uppercase;
         text-align: center !important; }
   .container.chem .statistics {
-    background-color: #407ec9;
-    border-bottom: 1px solid #fefefe; }
+    background-color: #407ec9; }
     .container.chem .statistics .columns {
       padding-top: 30px; }
       .container.chem .statistics .columns .text-center {
