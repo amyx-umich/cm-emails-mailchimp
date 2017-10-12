@@ -148,15 +148,35 @@ html,
                 }
             }
         }
+        .periwinkle {
+            background-color: #54aee8;
+            border-top: 2px solid #318cce;
+            border-bottom: 2px solid #318cce;
+            .columns {
+                padding: 0 !important;
+            }
+            p {
+                color: $white;
+                font-family: 'Open Sans';
+                font-size: 18px;
+                padding: 36px 0;
+                margin: 0;
+            }
+        }
         .cta {
             background-color: $michigan-maize;
             border-bottom: 1px solid $white;
+            .columns {
+                padding: 0 !important;
+            }
             .button {
+                margin: 36px 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
                 a {
                     font-family: 'Open Sans';
                     font-weight: 800;
                     text-transform: uppercase;
+                    text-align: center !important;
                 }
             }
         }
