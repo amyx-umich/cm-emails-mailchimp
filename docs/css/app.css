@@ -1376,7 +1376,9 @@ body.outlook p {
 body,
 html,
 .body {
-  background: #f7f7f7 !important; }
+  background: #f7f7f7 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto; }
 
 .container {
   background: #fefefe;
@@ -1401,7 +1403,7 @@ html,
   .container.engage .header {
     background: #ffcb05; }
     .container.engage .header .menu .menu-item a {
-      font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+      font-family: "Fjalla One", "Arial Narrow", Arial, Helvetica, sans-serif;
       text-transform: uppercase;
       color: #00274c; }
   .container.engage .lead-story {
@@ -1410,7 +1412,7 @@ html,
     .container.engage .lead-story p {
       color: #1d1d1d; }
     .container.engage .lead-story h2 a {
-      font-family: "Open Sans";
+      font-family: "Open Sans", sans-serif;
       font-size: 36px;
       line-height: 1.2;
       color: #1d1d1d !important;
@@ -1419,7 +1421,7 @@ html,
         text-decoration: underline; }
     .container.engage .lead-story .eyebrow {
       color: #00274c;
-      font-family: "Open Sans";
+      font-family: "Open Sans", sans-serif;
       font-weight: 800;
       margin-bottom: 0; }
     .container.engage .lead-story.hed .columns {
@@ -1427,20 +1429,22 @@ html,
     .container.engage .lead-story.dek {
       border-bottom: 4px solid #101010; }
       .container.engage .lead-story.dek .time-indicator {
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         font-weight: 600;
         font-size: 14px; }
       .container.engage .lead-story.dek p {
         font-size: 18px;
         line-height: 1.6; }
   .container.chem .lead {
-    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
-    font-size: 24px !important;
+    font-family: "Fjalla One", "Arial Narrow", Arial, Helvetica, sans-serif;
+    font-size: 22px !important;
     text-transform: uppercase;
     color: #fefefe;
     margin-bottom: .5rem; }
     @media only screen and (max-width: 620px) {
       .container.chem .lead {
+        padding-left: 10px;
+        padding-right: 10px;
         font-size: 18px !important; } }
   .container.chem .lead-story {
     background-color: #ffcb05; }
@@ -1467,7 +1471,9 @@ html,
         font-size: 14px;
         line-height: 1.6; }
         .container.chem .lead-story.dek p.photo-credit {
-          font-family: 'Open Sans'; }
+          font-family: "Open Sans", Helvetica, Arial, sans-serif;
+          color: #cacaca;
+          font-size: 12px; }
   .container.chem .quote {
     background-color: #ffcb05; }
     .container.chem .quote p {
@@ -1476,7 +1482,7 @@ html,
       font-size: 16px; }
       .container.chem .quote p.inset {
         padding: 0 20px;
-        font-family: 'Open Sans';
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
         font-style: italic; }
   .container.chem .periwinkle {
     background-color: #54aee8;
@@ -1485,7 +1491,7 @@ html,
       padding: 0 !important; }
     .container.chem .periwinkle p {
       color: #fefefe;
-      font-family: 'Open Sans';
+      font-family: "Open Sans", Helvetica, Arial, sans-serif;
       font-size: 18px;
       padding: 36px 0;
       margin: 0; }
@@ -1497,7 +1503,7 @@ html,
       margin: 0 0 36px 0;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
       .container.chem .cta .button a {
-        font-family: 'Open Sans';
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
         font-weight: 800;
         text-transform: uppercase;
         text-align: center !important; }
@@ -1507,7 +1513,7 @@ html,
       padding-top: 30px; }
       .container.chem .statistics .columns .text-center {
         margin-top: 10px;
-        font-family: 'Open Sans';
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
         font-weight: 800;
         color: #fefefe; }
   .container.chem .faculty-title {
@@ -1518,33 +1524,28 @@ html,
       color: #fefefe;
       text-transform: uppercase;
       margin: 30px 0 0; }
-  .container.chem .new-faculty {
+  .container.chem .listing {
+    color: #fefefe;
     background-color: #00274c;
-    border-bottom: 1px solid #fefefe; }
-    .container.chem .new-faculty .columns .listing {
-      color: #fefefe;
-      border-bottom: 2px dotted #00417f;
+    border-bottom: 1px dotted #00417f; }
+    .container.chem .listing .columns {
       padding-top: 20px;
       padding-bottom: 20px; }
-      .container.chem .new-faculty .columns .listing .clear {
-        clear: both; }
-      .container.chem .new-faculty .columns .listing div {
-        color: #fefefe;
-        line-height: 1.6; }
-        .container.chem .new-faculty .columns .listing div .name {
-          font-family: 'Open Sans';
-          font-weight: 800;
-          color: #ffcb05; }
-      .container.chem .new-faculty .columns .listing img {
-        width: 19%;
-        max-width: none;
-        margin-right: 15px;
-        margin-bottom: 2px; }
-        @media only screen and (max-width: 620px) {
-          .container.chem .new-faculty .columns .listing img {
-            width: 35% !important; } }
-      .container.chem .new-faculty .columns .listing:last-child {
-        border-bottom: 0; }
+      @media only screen and (max-width: 620px) {
+        .container.chem .listing .columns {
+          padding-right: 10px !important;
+          padding-left: 10px !important; } }
+    .container.chem .listing img {
+      width: 100%; }
+    .container.chem .listing div {
+      color: #fefefe;
+      line-height: 1.6; }
+      .container.chem .listing div .name {
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        color: #ffcb05; }
+    .container.chem .listing.no-border {
+      border-bottom: 0; }
   .container.chem .top-spacer {
     border-top: 0 !important; }
   .container.chem .footer {
@@ -1561,7 +1562,7 @@ html,
     .container .header .menu {
       /* Small only */ }
       .container .header .menu .menu-item a {
-        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+        font-family: "Fjalla One", "Arial Narrow", Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         color: #fefefe; }
       @media only screen and (max-width: 620px) {
@@ -1574,7 +1575,7 @@ html,
     .container .lead-story p {
       color: #fefefe; }
     .container .lead-story h2 a {
-      font-family: "Open Sans";
+      font-family: "Open Sans", sans-serif;
       font-size: 36px;
       line-height: 1.2;
       color: #fefefe;
@@ -1586,7 +1587,7 @@ html,
           font-size: 30px !important; } }
     .container .lead-story .eyebrow {
       color: #ffcb05;
-      font-family: "Open Sans";
+      font-family: "Open Sans", sans-serif;
       font-weight: 600;
       margin-bottom: 0; }
     .container .lead-story.hed .columns {
@@ -1594,14 +1595,14 @@ html,
     .container .lead-story.dek {
       border-bottom: 4px solid #101010; }
       .container .lead-story.dek .time-indicator {
-        font-family: "Open Sans";
+        font-family: "Open Sans", sans-serif;
         font-weight: 600;
         font-size: 14px; }
       .container .lead-story.dek p {
         font-size: 18px;
         line-height: 1.6; }
   .container .section-title {
-    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+    font-family: "Fjalla One", "Arial Narrow", Arial, Helvetica, sans-serif;
     border-left: 4px solid #ffcb05;
     padding-left: 5px;
     margin-bottom: 0;
@@ -1615,7 +1616,7 @@ html,
     margin-bottom: 10px; }
   .container .content-grid h4 a,
   .container .single h4 a {
-    font-family: "Open Sans";
+    font-family: "Open Sans, sans-serif";
     font-weight: 800;
     color: #1d1d1d; }
     .container .content-grid h4 a:hover,
@@ -1632,7 +1633,7 @@ html,
       color: #2199e8; }
   .container .content-grid .time-indicator,
   .container .single .time-indicator {
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     font-weight: 800; }
   .container .content-grid.last p,
   .container .single.last p {
@@ -1660,18 +1661,18 @@ html,
       margin-top: 20px; }
     .container .promo ul {
       padding-left: 15px;
-      font-family: "Open Sans";
+      font-family: "Open Sans", sans-serif;
       font-size: 16px;
       font-weight: 800;
       color: #fefefe; }
       .container .promo ul li {
         margin-bottom: 15px; }
         .container .promo ul li a {
-          font-family: "Open Sans";
+          font-family: "Open Sans", sans-serif;
           color: #fefefe; }
     .container .promo .button a {
       color: #1d1d1d;
-      font-family: "Open Sans"; }
+      font-family: "Open Sans", sans-serif; }
   .container .events h4 {
     /* Small only */ }
     @media only screen and (max-width: 620px) {
@@ -1693,7 +1694,7 @@ html,
       margin-bottom: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
       .container .call-to-actions .columns .button a {
-        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif; }
+        font-family: "Fjalla One", "Arial Narrow", Arial, Helvetica, sans-serif; }
     .container .call-to-actions .columns img {
       margin-top: 20px;
       width: 100%; }

@@ -5,6 +5,8 @@ body,
 html,
 .body {
     background: $light-gray !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 .container {
@@ -40,7 +42,7 @@ html,
             .menu {
                 .menu-item {
                     a {
-                        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+                        font-family: $super-header-font-family;
                         text-transform: uppercase;
                         color: $michigan-blue;
                     }
@@ -55,7 +57,7 @@ html,
             }
             h2 {
                 a {
-                    font-family: "Open Sans";
+                    font-family: "Open Sans", sans-serif;
                     font-size: 36px;
                     line-height: 1.2;
                     color: $black !important;
@@ -67,7 +69,7 @@ html,
             }
             .eyebrow {
                 color: $michigan-blue;
-                font-family: "Open Sans";
+                font-family: "Open Sans", sans-serif;
                 font-weight: 800;
                 margin-bottom: 0;
             }
@@ -79,7 +81,7 @@ html,
             &.dek {
                 border-bottom: 4px solid darken($black, 5%);
                 .time-indicator {
-                    font-family: "Open Sans";
+                    font-family: "Open Sans", sans-serif;
                     font-weight: 600;
                     font-size: 14px;
                 }
@@ -92,12 +94,14 @@ html,
     }
     &.chem {
         .lead {
-            font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
-            font-size: 24px !important;
+            font-family: $super-header-font-family;
+            font-size: 22px !important;
             text-transform: uppercase;
             color: $white;
             margin-bottom: .5rem;
             @media only screen and (max-width: #{$global-breakpoint}) {
+                padding-left: 10px;
+                padding-right: 10px;
                 font-size: 18px !important;
             }
         }
@@ -130,7 +134,9 @@ html,
                     font-size: 14px;
                     line-height: 1.6;
                     &.photo-credit {
-                        font-family: 'Open Sans';
+                        font-family: $header-font-family;
+                        color: $medium-gray;
+                        font-size: 12px;
                     }
                 }
             }
@@ -143,7 +149,7 @@ html,
                 font-size: 16px;
                 &.inset {
                     padding: 0 20px;
-                    font-family: 'Open Sans';
+                    font-family: $header-font-family;
                     font-style: italic;
                 }
             }
@@ -156,7 +162,7 @@ html,
             }
             p {
                 color: $white;
-                font-family: 'Open Sans';
+                font-family: $header-font-family;
                 font-size: 18px;
                 padding: 36px 0;
                 margin: 0;
@@ -171,7 +177,7 @@ html,
                 margin: 0 0 36px 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
                 a {
-                    font-family: 'Open Sans';
+                    font-family: $header-font-family;
                     font-weight: 800;
                     text-transform: uppercase;
                     text-align: center !important;
@@ -184,7 +190,7 @@ html,
                 padding-top: 30px;
                 .text-center {
                     margin-top: 10px;
-                    font-family: 'Open Sans';
+                    font-family: $header-font-family;
                     font-weight: 800;
                     color: $white;
                 }
@@ -201,43 +207,35 @@ html,
                 margin: 30px 0 0;
             }
         }
-        .new-faculty {
+        .listing {
+            color: $white;
             background-color: $michigan-blue;
-            border-bottom: 1px solid $white;
+            border-bottom: 1px dotted lighten($michigan-blue, 10%);
             .columns {
-                .listing {
-                    color: $white;
-                    border-bottom: 2px dotted lighten($michigan-blue, 10%);
-                    padding-top: 20px;
-                    padding-bottom: 20px;
-                    .clear {
-                        clear: both;
-                    }
-                    div {
-                        color: $white;
-                        line-height: 1.6;
-                        .name {
-                            font-family: 'Open Sans';
-                            font-weight: 800;
-                            color: $michigan-maize;
-                        }
-                    }
-
-                    img {
-                        width: 19%;
-                        max-width: none;
-                        margin-right: 15px;
-                        margin-bottom: 2px;
-                        @media only screen and (max-width: #{$global-breakpoint}) {
-                            width: 35% !important;
-                        }
-                    }
-                    &:last-child {
-                        border-bottom: 0;
-                    }
+                padding-top: 20px;
+                padding-bottom: 20px;
+                @media only screen and (max-width: #{$global-breakpoint}) {
+                    padding-right: 10px !important;
+                    padding-left: 10px !important;
                 }
             }
+            img {
+                width: 100%;
+            }
+            div {
+                color: $white;
+                line-height: 1.6;
+                .name {
+                    font-family: $header-font-family;
+                    font-weight: 800;
+                    color: $michigan-maize;
+                }
+            }
+            &.no-border {
+                border-bottom: 0;
+            }
         }
+
         .top-spacer {
             border-top: 0 !important;
         }
@@ -262,7 +260,7 @@ html,
         .menu {
             .menu-item {
                 a {
-                    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+                    font-family: $super-header-font-family;
                     text-transform: uppercase;
                     color: $white;
                 }
@@ -282,7 +280,7 @@ html,
         }
         h2 {
             a {
-                font-family: "Open Sans";
+                font-family: "Open Sans", sans-serif;
                 font-size: 36px;
                 line-height: 1.2;
                 color: $white;
@@ -297,7 +295,7 @@ html,
         }
         .eyebrow {
             color: $michigan-maize;
-            font-family: "Open Sans";
+            font-family: "Open Sans", sans-serif;
             font-weight: 600;
             margin-bottom: 0;
         }
@@ -309,7 +307,7 @@ html,
         &.dek {
             border-bottom: 4px solid darken($black, 5%);
             .time-indicator {
-                font-family: "Open Sans";
+                font-family: "Open Sans", sans-serif;
                 font-weight: 600;
                 font-size: 14px;
             }
@@ -320,7 +318,7 @@ html,
         }
     }
     .section-title {
-        font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+        font-family: $super-header-font-family;
         border-left: 4px solid $michigan-maize;
         padding-left: 5px;
         margin-bottom: 0;
@@ -337,7 +335,7 @@ html,
         }
         h4 {
             a {
-                font-family: "Open Sans";
+                font-family: "Open Sans, sans-serif";
                 font-weight: 800;
                 color: $black;
                 &:hover {
@@ -357,7 +355,7 @@ html,
             }
         }
         .time-indicator {
-            font-family: "Open Sans";
+            font-family: "Open Sans", sans-serif;
             font-weight: 800;
         }
         &.last {
@@ -395,14 +393,14 @@ html,
         }
         ul {
             padding-left: 15px;
-            font-family: "Open Sans";
+            font-family: "Open Sans", sans-serif;
             font-size: 16px;
             font-weight: 800;
             color: $white;
             li {
                 margin-bottom: 15px;
                 a {
-                    font-family: "Open Sans";
+                    font-family: "Open Sans", sans-serif;
                     color: $white;
                 }
             }
@@ -410,7 +408,7 @@ html,
         .button {
             a {
                 color: $black;
-                font-family: "Open Sans";
+                font-family: "Open Sans", sans-serif;
             }
         }
     }
@@ -443,7 +441,7 @@ html,
                 margin-bottom: 10px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
                 a {
-                    font-family: "Fjalla One", "Arial Narrow", Helvetica, sans-serif;
+                    font-family: $super-header-font-family;
                 }
             }
             img {
