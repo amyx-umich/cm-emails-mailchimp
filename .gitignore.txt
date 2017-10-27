@@ -1,7 +1,12 @@
-.DS_Store
-node_modules
+*.DS_Store
+node_modules/
+.sass-cache/
 npm-debug.log
+temp/
+_build/
+inky
+*.swp
+.templates
+.download
+foundation-emails.zip
 bower_components
-.sass-cache
-.awspublish*
-config.json
